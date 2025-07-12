@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button';
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showFavorites, setShowFavorites] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
@@ -16,6 +18,33 @@ const NavBar = () => {
     { path: '/add-item', label: 'List Item' },
     { path: '/dashboard', label: 'Dashboard' },
   ];
+
+  // Mock favorites data
+  const favorites = [
+    {
+      id: '1',
+      title: 'Vintage Leather Jacket',
+      image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=150&h=150&fit=crop',
+      category: 'Outerwear',
+      points: 150
+    },
+    {
+      id: '2',
+      title: 'Designer Handbag',
+      image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=150&h=150&fit=crop',
+      category: 'Accessories',
+      points: 200
+    }
+  ];
+
+  // Mock profile data
+  const profile = {
+    name: 'Sarah Chen',
+    phoneNumber: '+1 (555) 123-4567',
+    city: 'New York',
+    state: 'NY',
+    pincode: '10001'
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-purple-200/50 shadow-sm">
@@ -53,12 +82,144 @@ const NavBar = () => {
             <Button variant="ghost" size="sm" className="p-2 hover:bg-purple-50 hover:text-purple-600">
               <Search className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="sm" className="p-2 hover:bg-purple-50 hover:text-magenta-500">
-              <Heart className="h-5 w-5" />
-            </Button>
+            
+            {/* Favorites Dropdown */}
+            <div className="relative">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="p-2 hover:bg-purple-50 hover:text-magenta-500 relative"
+                onClick={() => setShowFavorites(!showFavorites)}
+              >
+                <Heart className="h-5 w-5" />
+                {favorites.length > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-magenta-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
+                    {favorites.length}
+                  </span>
+                )}
+              </Button>
+
+              {showFavorites && (
+                <div className="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-lg border border-purple-200 z-50">
+                  <div className="p-4 border-b border-purple-100">
+                    <h3 className="font-semibold text-charcoal-900">Your Favorites</h3>
+                  </div>
+                  
+                  <div className="max-h-96 overflow-y-auto">
+                    {favorites.length > 0 ? (
+                      <div className="p-2">
+                        {favorites.map((item) => (
+                          <div key={item.id} className="flex items-center p-3 hover:bg-purple-50 rounded-lg">
+                            <img
+                              src={item.image}
+                              alt={item.title}
+                              className="w-12 h-12 object-cover rounded-lg mr-3"
+                            />
+                            <div className="flex-1">
+                              <h4 className="font-medium text-charcoal-900 text-sm">{item.title}</h4>
+                              <p className="text-xs text-charcoal-600">{item.category}</p>
+                              <p className="text-xs text-purple-600 font-medium">{item.points} points</p>
+                            </div>
+                            <Button variant="ghost" size="sm" className="p-1 text-red-500 hover:text-red-600">
+                              <X className="h-4 w-4" />
+                            </Button>
+                          </div>
+                        ))}
+                        <div className="p-3 border-t border-purple-100">
+                          <Link to="/favorites">
+                            <Button className="w-full purple-button-secondary text-sm">
+                              View All Favorites
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="p-6 text-center">
+                        <Heart className="h-12 w-12 text-charcoal-300 mx-auto mb-2" />
+                        <p className="text-charcoal-500 text-sm">No favorites yet</p>
+                        <p className="text-charcoal-400 text-xs">Start adding items you love!</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Profile Dropdown */}
+            <div className="relative">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="p-2 hover:bg-purple-50 hover:text-purple-600"
+                onClick={() => setShowProfile(!showProfile)}
+              >
+                <User className="h-5 w-5" />
+              </Button>
+
+              {showProfile && (
+                <div className="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-lg border border-purple-200 z-50">
+                  <div className="p-4 border-b border-purple-100">
+                    <h3 className="font-semibold text-charcoal-900">Profile Settings</h3>
+                  </div>
+                  
+                  <div className="p-4 space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium text-charcoal-700 mb-1">Name</label>
+                      <input
+                        type="text"
+                        value={profile.name}
+                        readOnly
+                        className="w-full px-3 py-2 bg-purple-50 border border-purple-200 rounded-lg text-sm"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-charcoal-700 mb-1">Phone Number</label>
+                      <input
+                        type="tel"
+                        value={profile.phoneNumber}
+                        className="w-full px-3 py-2 border border-purple-200 rounded-lg text-sm focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                      />
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-sm font-medium text-charcoal-700 mb-1">City</label>
+                        <input
+                          type="text"
+                          value={profile.city}
+                          className="w-full px-3 py-2 border border-purple-200 rounded-lg text-sm focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-charcoal-700 mb-1">State</label>
+                        <input
+                          type="text"
+                          value={profile.state}
+                          className="w-full px-3 py-2 border border-purple-200 rounded-lg text-sm focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                        />
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-charcoal-700 mb-1">Pincode</label>
+                      <input
+                        type="text"
+                        value={profile.pincode}
+                        className="w-full px-3 py-2 border border-purple-200 rounded-lg text-sm focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                      />
+                    </div>
+                    
+                    <Button className="w-full purple-button-primary text-sm">
+                      Save Changes
+                    </Button>
+                  </div>
+                </div>
+              )}
+            </div>
+
             <Link to="/login">
               <Button variant="outline" size="sm" className="rounded-xl border-purple-300 text-purple-600 hover:bg-purple-50 hover:border-purple-500">
-                <User className="h-4 w-4 mr-2" />
                 Login
               </Button>
             </Link>
@@ -116,6 +277,17 @@ const NavBar = () => {
           </div>
         )}
       </div>
+
+      {/* Overlay for dropdowns */}
+      {(showFavorites || showProfile) && (
+        <div
+          className="fixed inset-0 z-40"
+          onClick={() => {
+            setShowFavorites(false);
+            setShowProfile(false);
+          }}
+        />
+      )}
     </nav>
   );
 };
