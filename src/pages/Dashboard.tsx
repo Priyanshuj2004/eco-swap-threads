@@ -47,7 +47,7 @@ const Dashboard = () => {
     }
   ];
 
-  const swapRequests = [
+  const [swapRequests, setSwapRequests] = useState([
     {
       id: '1',
       type: 'incoming' as const,
@@ -66,11 +66,11 @@ const Dashboard = () => {
       owner: 'Alex Rodriguez',
       ownerPhone: '+1 (555) 987-6543',
       dateRequested: '2024-01-08',
-      status: 'approved' as const,
+      status: 'pending' as const,
       message: 'Perfect condition tee, exactly what I was looking for!',
-      showContact: true
+      showContact: false
     }
-  ];
+  ]);
 
   const completedSwaps = [
     {
@@ -88,6 +88,19 @@ const Dashboard = () => {
       image: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=150&h=150&fit=crop'
     }
   ];
+
+  const handleAcceptSwap = (swapId: string) => {
+    const randomNumber = Math.floor(Math.random() * 1000) + 1;
+    alert(`Swap accepted! Random number: ${randomNumber}`);
+    
+    setSwapRequests(prev => 
+      prev.map(swap => 
+        swap.id === swapId 
+          ? { ...swap, status: 'approved' as const, showContact: true }
+          : swap
+      )
+    );
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-magenta-50">
@@ -262,7 +275,11 @@ const Dashboard = () => {
                         <Button variant="outline" size="sm" className="rounded-xl">
                           Decline
                         </Button>
-                        <Button size="sm" className="purple-button-primary">
+                        <Button 
+                          size="sm" 
+                          className="purple-button-primary"
+                          onClick={() => handleAcceptSwap(swap.id)}
+                        >
                           Accept
                         </Button>
                       </div>
