@@ -222,7 +222,9 @@ const Dashboard = () => {
                       <div>
                         <h3 className="font-semibold text-charcoal-900">{swap.item}</h3>
                         <p className="text-sm text-charcoal-600">
-                          {swap.type === 'incoming' ? `Request from ${swap.requester}` : `Request to ${swap.owner}`}
+                          {swap.type === 'incoming' 
+                            ? `Request from ${swap.requester}` 
+                            : `Request to ${swap.owner}`}
                         </p>
                       </div>
                     </div>
@@ -238,10 +240,14 @@ const Dashboard = () => {
                         <span className="font-medium">Contact Details:</span>
                       </div>
                       <p className="text-plum-600 mt-1">
-                        {swap.type === 'incoming' ? swap.requesterPhone : swap.ownerPhone}
+                        {swap.type === 'incoming' 
+                          ? (swap.requesterPhone || 'Phone not available')
+                          : (swap.ownerPhone || 'Phone not available')}
                       </p>
                       <p className="text-xs text-plum-500 mt-1">
-                        Contact {swap.type === 'incoming' ? swap.requester : swap.owner} to coordinate the swap
+                        Contact {swap.type === 'incoming' 
+                          ? (swap.requester || 'requester') 
+                          : (swap.owner || 'owner')} to coordinate the swap
                       </p>
                     </div>
                   )}
