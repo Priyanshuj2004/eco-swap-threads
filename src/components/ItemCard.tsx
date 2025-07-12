@@ -34,9 +34,9 @@ const ItemCard: React.FC<ItemCardProps> = ({
   onClick
 }) => {
   return (
-    <div className="eco-card group cursor-pointer overflow-hidden" onClick={onClick}>
+    <div className="purple-card group cursor-pointer overflow-hidden" onClick={onClick}>
       {/* Image Container */}
-      <div className="relative overflow-hidden rounded-t-2xl">
+      <div className="relative overflow-hidden rounded-t-xl">
         <img
           src={image}
           alt={title}
@@ -48,15 +48,15 @@ const ItemCard: React.FC<ItemCardProps> = ({
           <Button
             variant="ghost"
             size="sm"
-            className={`p-2 rounded-full bg-white/80 backdrop-blur-sm hover:bg-white ${
-              isLiked ? 'text-red-500' : 'text-gray-600'
+            className={`p-2 rounded-full bg-white/80 backdrop-blur-sm hover:bg-white transition-all duration-200 ${
+              isLiked ? 'text-magenta-500' : 'text-charcoal-400 hover:text-magenta-500'
             }`}
             onClick={(e) => {
               e.stopPropagation();
               onLike?.();
             }}
           >
-            <Heart className={`h-4 w-4 ${isLiked ? 'fill-current' : ''}`} />
+            <Heart className={`h-4 w-4 ${isLiked ? 'fill-current heart-liked' : ''}`} />
           </Button>
         </div>
 
@@ -71,17 +71,17 @@ const ItemCard: React.FC<ItemCardProps> = ({
       {/* Content */}
       <div className="p-4">
         <div className="flex items-start justify-between mb-2">
-          <h3 className="font-semibold text-gray-900 group-hover:text-eco-600 transition-colors line-clamp-2">
+          <h3 className="font-semibold text-charcoal-900 group-hover:text-purple-600 transition-colors line-clamp-2">
             {title}
           </h3>
         </div>
 
         {/* Details */}
-        <div className="flex items-center text-sm text-gray-600 mb-3">
-          <span className="bg-eco-50 text-eco-700 px-2 py-1 rounded-lg mr-2">
+        <div className="flex items-center text-sm text-charcoal-600 mb-3">
+          <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded-lg mr-2">
             {category}
           </span>
-          <span className="bg-earth-50 text-earth-700 px-2 py-1 rounded-lg mr-2">
+          <span className="bg-magenta-100 text-magenta-700 px-2 py-1 rounded-lg mr-2">
             Size {size}
           </span>
         </div>
@@ -99,15 +99,15 @@ const ItemCard: React.FC<ItemCardProps> = ({
         {/* User info */}
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <div className="w-8 h-8 bg-eco-100 rounded-full flex items-center justify-center mr-2">
-              <span className="text-sm font-medium text-eco-700">
+            <div className="w-8 h-8 bg-gradient-to-br from-purple-100 to-magenta-100 rounded-full flex items-center justify-center mr-2">
+              <span className="text-sm font-medium text-purple-700">
                 {uploader.charAt(0).toUpperCase()}
               </span>
             </div>
             <div>
-              <p className="text-sm font-medium text-gray-900">{uploader}</p>
+              <p className="text-sm font-medium text-charcoal-900">{uploader}</p>
               {location && (
-                <div className="flex items-center text-xs text-gray-500">
+                <div className="flex items-center text-xs text-charcoal-500">
                   <MapPin className="h-3 w-3 mr-1" />
                   {location}
                 </div>
@@ -118,7 +118,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
           {rating && (
             <div className="flex items-center">
               <Star className="h-4 w-4 text-yellow-400 fill-current" />
-              <span className="text-sm text-gray-600 ml-1">{rating}</span>
+              <span className="text-sm text-charcoal-600 ml-1">{rating}</span>
             </div>
           )}
         </div>

@@ -112,15 +112,15 @@ const Browse = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-eco-50 via-white to-earth-50">
+    <div className="min-h-screen purple-gradient">
       <NavBar />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Browse Items</h1>
-            <p className="text-gray-600">Discover amazing pre-loved fashion from our community</p>
+            <h1 className="text-3xl font-bold text-charcoal-900 mb-2">Browse Items</h1>
+            <p className="text-charcoal-600">Discover amazing pre-loved fashion from our community</p>
           </div>
           
           <div className="flex items-center space-x-2 mt-4 md:mt-0">
@@ -128,7 +128,7 @@ const Browse = () => {
               variant={viewMode === 'grid' ? 'default' : 'outline'}
               size="sm"
               onClick={() => setViewMode('grid')}
-              className="rounded-xl"
+              className={`rounded-xl ${viewMode === 'grid' ? 'bg-purple-600 text-white' : 'border-purple-300 text-purple-600 hover:bg-purple-50'}`}
             >
               <Grid className="h-4 w-4" />
             </Button>
@@ -136,7 +136,7 @@ const Browse = () => {
               variant={viewMode === 'list' ? 'default' : 'outline'}
               size="sm"
               onClick={() => setViewMode('list')}
-              className="rounded-xl"
+              className={`rounded-xl ${viewMode === 'list' ? 'bg-purple-600 text-white' : 'border-purple-300 text-purple-600 hover:bg-purple-50'}`}
             >
               <List className="h-4 w-4" />
             </Button>
@@ -146,30 +146,30 @@ const Browse = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Filters Sidebar */}
           <div className="lg:col-span-1">
-            <Card className="eco-card p-6 sticky top-8">
+            <Card className="purple-card p-6 sticky top-8 bg-purple-200/30">
               <div className="flex items-center mb-6">
-                <Filter className="h-5 w-5 text-eco-600 mr-2" />
-                <h2 className="text-lg font-semibold text-gray-900">Filters</h2>
+                <Filter className="h-5 w-5 text-purple-600 mr-2" />
+                <h2 className="text-lg font-semibold text-charcoal-900">Filters</h2>
               </div>
 
               {/* Search */}
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">Search</label>
+                <label className="block text-sm font-medium text-charcoal-700 mb-2">Search</label>
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-charcoal-400" />
                   <Input
                     type="text"
                     placeholder="Search items..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-10 rounded-xl"
+                    className="pl-10 rounded-xl border-purple-200 focus:border-purple-500"
                   />
                 </div>
               </div>
 
               {/* Category Filter */}
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-3">Category</label>
+                <label className="block text-sm font-medium text-charcoal-700 mb-3">Category</label>
                 <div className="space-y-2">
                   {categories.map((category) => (
                     <label key={category} className="flex items-center">
@@ -179,9 +179,9 @@ const Browse = () => {
                         value={category}
                         checked={selectedCategory === category}
                         onChange={(e) => setSelectedCategory(e.target.value)}
-                        className="h-4 w-4 text-eco-600 focus:ring-eco-500 border-gray-300"
+                        className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-purple-300"
                       />
-                      <span className="ml-2 text-sm text-gray-700 capitalize">
+                      <span className="ml-2 text-sm text-charcoal-700 capitalize">
                         {category === 'all' ? 'All Categories' : category}
                       </span>
                     </label>
@@ -191,15 +191,19 @@ const Browse = () => {
 
               {/* Size Filter */}
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-3">Size</label>
+                <label className="block text-sm font-medium text-charcoal-700 mb-3">Size</label>
                 <div className="grid grid-cols-3 gap-2">
                   {sizes.map((size) => (
                     <Button
                       key={size}
-                      variant={selectedSize === size ? 'default' : 'outline'}
+                      variant="outline"
                       size="sm"
                       onClick={() => setSelectedSize(size)}
-                      className="rounded-lg text-xs"
+                      className={`rounded-lg text-xs ${
+                        selectedSize === size 
+                          ? 'filter-chip-active' 
+                          : 'filter-chip-inactive'
+                      }`}
                     >
                       {size === 'all' ? 'All' : size}
                     </Button>
@@ -209,7 +213,7 @@ const Browse = () => {
 
               {/* Condition Filter */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">Condition</label>
+                <label className="block text-sm font-medium text-charcoal-700 mb-3">Condition</label>
                 <div className="space-y-2">
                   {conditions.map((condition) => (
                     <label key={condition} className="flex items-center">
@@ -219,9 +223,9 @@ const Browse = () => {
                         value={condition}
                         checked={selectedCondition === condition}
                         onChange={(e) => setSelectedCondition(e.target.value)}
-                        className="h-4 w-4 text-eco-600 focus:ring-eco-500 border-gray-300"
+                        className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-purple-300"
                       />
-                      <span className="ml-2 text-sm text-gray-700">
+                      <span className="ml-2 text-sm text-charcoal-700">
                         {condition === 'all' ? 'All Conditions' : condition}
                       </span>
                     </label>
@@ -234,7 +238,7 @@ const Browse = () => {
           {/* Items Grid/List */}
           <div className="lg:col-span-3">
             <div className="flex items-center justify-between mb-6">
-              <p className="text-gray-600">
+              <p className="text-charcoal-600">
                 Showing {filteredItems.length} of {items.length} items
               </p>
             </div>
@@ -253,7 +257,7 @@ const Browse = () => {
             ) : (
               <div className="space-y-4">
                 {filteredItems.map((item) => (
-                  <Card key={item.id} className="eco-card p-4 hover:shadow-xl transition-all duration-300">
+                  <Card key={item.id} className="purple-card p-4">
                     <div className="flex items-center space-x-4">
                       <img
                         src={item.image}
@@ -261,9 +265,9 @@ const Browse = () => {
                         className="w-20 h-20 rounded-xl object-cover"
                       />
                       <div className="flex-1">
-                        <h3 className="font-semibold text-gray-900 mb-1">{item.title}</h3>
-                        <p className="text-sm text-gray-600 mb-2">{item.category} • Size {item.size} • {item.condition}</p>
-                        <div className="flex items-center text-sm text-gray-500">
+                        <h3 className="font-semibold text-charcoal-900 mb-1">{item.title}</h3>
+                        <p className="text-sm text-charcoal-600 mb-2">{item.category} • Size {item.size} • {item.condition}</p>
+                        <div className="flex items-center text-sm text-charcoal-500">
                           <MapPin className="h-3 w-3 mr-1" />
                           {item.location}
                           <Star className="h-3 w-3 ml-3 mr-1 fill-yellow-400 text-yellow-400" />
@@ -271,8 +275,8 @@ const Browse = () => {
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-lg font-bold text-eco-600 mb-2">{item.points} pts</div>
-                        <Button size="sm" className="eco-button-primary">
+                        <div className="text-lg font-bold text-purple-600 mb-2">{item.points} pts</div>
+                        <Button size="sm" className="purple-button-primary">
                           View Details
                         </Button>
                       </div>
@@ -283,10 +287,10 @@ const Browse = () => {
             )}
 
             {filteredItems.length === 0 && (
-              <div className="eco-card p-12 text-center">
-                <Search className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">No items found</h3>
-                <p className="text-gray-600">Try adjusting your filters to see more results</p>
+              <div className="purple-card p-12 text-center">
+                <Search className="h-16 w-16 text-purple-300 mx-auto mb-4" />
+                <h3 className="text-lg font-semibold text-charcoal-900 mb-2">No items found</h3>
+                <p className="text-charcoal-600">Try adjusting your filters to see more results</p>
               </div>
             )}
           </div>

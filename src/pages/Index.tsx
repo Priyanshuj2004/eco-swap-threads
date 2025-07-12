@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Recycle, Users, Award, ChevronLeft, ChevronRight, Leaf, Heart, Shield } from 'lucide-react';
@@ -70,7 +69,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-eco-50 via-white to-earth-50">
+    <div className="min-h-screen purple-gradient">
       <NavBar />
       
       {/* Hero Section */}
@@ -80,38 +79,41 @@ const Index = () => {
             {/* Hero Content */}
             <div className="animate-fade-in">
               <div className="flex items-center mb-6">
-                <div className="p-3 bg-eco-100 rounded-2xl mr-4">
-                  <Recycle className="h-8 w-8 text-eco-600" />
+                <div className="p-3 bg-gradient-to-br from-purple-100 to-magenta-100 rounded-2xl mr-4">
+                  <Recycle className="h-8 w-8 text-purple-600" />
                 </div>
-                <span className="bg-eco-100 text-eco-700 px-4 py-2 rounded-full text-sm font-medium">
+                <span className="bg-gradient-to-r from-plum-100 to-plum-200 text-plum-700 px-4 py-2 rounded-full text-sm font-medium border border-plum-300">
                   🌱 Sustainable Fashion
                 </span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-5xl md:text-6xl font-bold text-charcoal-900 mb-6 leading-tight">
                 Give Clothes a
-                <span className="block text-eco-600">Second Life</span>
+                <span className="block bg-gradient-to-r from-purple-600 to-magenta-600 bg-clip-text text-transparent">
+                  Second Life
+                </span>
               </h1>
               
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-xl text-charcoal-600 mb-8 leading-relaxed">
                 Join our community-driven clothing exchange platform. Swap, redeem, and discover 
                 pre-loved fashion while reducing waste and supporting sustainable living.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link to="/browse">
-                  <Button className="eco-button-primary group">
+                  <Button className="purple-button-primary group">
                     Start Swapping
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 <Link to="/browse">
-                  <Button className="eco-button-secondary">
+                  <Button className="purple-button-secondary">
                     Browse Items
                   </Button>
                 </Link>
                 <Link to="/add-item">
-                  <Button variant="outline" className="rounded-2xl border-eco-200 hover:bg-eco-50">
+                  <Button className="purple-button-outline">
+                    <Leaf className="mr-2 h-4 w-4" />
                     List an Item
                   </Button>
                 </Link>
@@ -120,23 +122,23 @@ const Index = () => {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-eco-600 mb-1">12K+</div>
-                  <div className="text-sm text-gray-600">Items Swapped</div>
+                  <div className="text-3xl font-bold text-purple-600 mb-1">12K+</div>
+                  <div className="text-sm text-charcoal-600">Items Swapped</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-eco-600 mb-1">5K+</div>
-                  <div className="text-sm text-gray-600">Happy Members</div>
+                  <div className="text-3xl font-bold text-purple-600 mb-1">5K+</div>
+                  <div className="text-sm text-charcoal-600">Happy Members</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-eco-600 mb-1">98%</div>
-                  <div className="text-sm text-gray-600">Satisfaction</div>
+                  <div className="text-3xl font-bold text-purple-600 mb-1">98%</div>
+                  <div className="text-sm text-charcoal-600">Satisfaction</div>
                 </div>
               </div>
             </div>
 
             {/* Hero Image */}
             <div className="relative">
-              <div className="eco-card p-8">
+              <div className="purple-card p-8">
                 <img
                   src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=600&h=400&fit=crop"
                   alt="Sustainable fashion community"
@@ -145,14 +147,14 @@ const Index = () => {
               </div>
               
               {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 bg-white rounded-2xl p-4 shadow-lg animate-fade-in">
+              <div className="absolute -top-4 -right-4 bg-white rounded-2xl p-4 shadow-lg animate-fade-in border border-purple-100">
                 <div className="flex items-center space-x-2">
-                  <Heart className="h-5 w-5 text-red-500" />
-                  <span className="text-sm font-medium">2.3K Likes</span>
+                  <Heart className="h-5 w-5 text-magenta-500" />
+                  <span className="text-sm font-medium text-charcoal-700">2.3K Likes</span>
                 </div>
               </div>
               
-              <div className="absolute -bottom-4 -left-4 bg-eco-500 text-white rounded-2xl p-4 shadow-lg animate-fade-in">
+              <div className="absolute -bottom-4 -left-4 bg-gradient-to-r from-plum-400 to-plum-500 text-white rounded-2xl p-4 shadow-lg animate-fade-in">
                 <div className="flex items-center space-x-2">
                   <Leaf className="h-5 w-5" />
                   <span className="text-sm font-medium">Eco-Friendly</span>
@@ -167,10 +169,10 @@ const Index = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-charcoal-900 mb-4">
               Why Choose ReWear?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-charcoal-600 max-w-3xl mx-auto">
               Every piece of clothing deserves a second chance. Join thousands of fashion-conscious 
               individuals making a positive impact on the environment.
             </p>
@@ -178,31 +180,31 @@ const Index = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center group">
-              <div className="p-6 bg-eco-50 rounded-2xl w-20 h-20 mx-auto mb-6 group-hover:bg-eco-100 transition-colors">
-                <Recycle className="h-8 w-8 text-eco-600 mx-auto mt-2" />
+              <div className="p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl w-20 h-20 mx-auto mb-6 group-hover:from-purple-100 group-hover:to-purple-200 transition-all duration-300">
+                <Recycle className="h-8 w-8 text-purple-600 mx-auto mt-2" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Sustainable Impact</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-charcoal-900 mb-4">Sustainable Impact</h3>
+              <p className="text-charcoal-600">
                 Reduce textile waste and carbon footprint by giving clothes a new life instead of buying new.
               </p>
             </div>
 
             <div className="text-center group">
-              <div className="p-6 bg-eco-50 rounded-2xl w-20 h-20 mx-auto mb-6 group-hover:bg-eco-100 transition-colors">
-                <Users className="h-8 w-8 text-eco-600 mx-auto mt-2" />
+              <div className="p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl w-20 h-20 mx-auto mb-6 group-hover:from-purple-100 group-hover:to-purple-200 transition-all duration-300">
+                <Users className="h-8 w-8 text-purple-600 mx-auto mt-2" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Community Driven</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-charcoal-900 mb-4">Community Driven</h3>
+              <p className="text-charcoal-600">
                 Connect with like-minded individuals in your area who share your passion for sustainable fashion.
               </p>
             </div>
 
             <div className="text-center group">
-              <div className="p-6 bg-eco-50 rounded-2xl w-20 h-20 mx-auto mb-6 group-hover:bg-eco-100 transition-colors">
-                <Award className="h-8 w-8 text-eco-600 mx-auto mt-2" />
+              <div className="p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl w-20 h-20 mx-auto mb-6 group-hover:from-purple-100 group-hover:to-purple-200 transition-all duration-300">
+                <Award className="h-8 w-8 text-purple-600 mx-auto mt-2" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Earn Rewards</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-charcoal-900 mb-4">Earn Rewards</h3>
+              <p className="text-charcoal-600">
                 Earn points for every item you share and use them to get items you love from the community.
               </p>
             </div>
@@ -211,14 +213,14 @@ const Index = () => {
       </section>
 
       {/* Featured Items Carousel */}
-      <section className="py-20 eco-gradient">
+      <section className="py-20 purple-gradient">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-12">
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-4xl font-bold text-charcoal-900 mb-4">
                 Featured Items
               </h2>
-              <p className="text-gray-600">
+              <p className="text-charcoal-600">
                 Discover amazing pre-loved fashion from our community
               </p>
             </div>
@@ -228,7 +230,7 @@ const Index = () => {
                 variant="outline"
                 size="sm"
                 onClick={prevSlide}
-                className="p-2 rounded-full"
+                className="p-2 rounded-full border-purple-300 text-purple-600 hover:bg-purple-50"
               >
                 <ChevronLeft className="h-5 w-5" />
               </Button>
@@ -236,7 +238,7 @@ const Index = () => {
                 variant="outline"
                 size="sm"
                 onClick={nextSlide}
-                className="p-2 rounded-full"
+                className="p-2 rounded-full border-purple-300 text-purple-600 hover:bg-purple-50"
               >
                 <ChevronRight className="h-5 w-5" />
               </Button>
@@ -256,7 +258,7 @@ const Index = () => {
 
           <div className="text-center mt-12">
             <Link to="/browse">
-              <Button className="eco-button-primary group">
+              <Button className="purple-button-primary group">
                 View All Items
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -270,19 +272,19 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="flex justify-center mb-6">
-              <div className="p-4 bg-eco-100 rounded-2xl">
-                <Shield className="h-12 w-12 text-eco-600" />
+              <div className="p-4 bg-gradient-to-br from-purple-100 to-magenta-100 rounded-2xl">
+                <Shield className="h-12 w-12 text-purple-600" />
               </div>
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-charcoal-900 mb-4">
               Safe & Secure Trading
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+            <p className="text-lg text-charcoal-600 max-w-2xl mx-auto mb-8">
               Every user is verified, all transactions are secured, and our community guidelines 
               ensure a positive experience for everyone.
             </p>
             <Link to="/signup">
-              <Button className="eco-button-primary">
+              <Button className="purple-button-primary">
                 Join Our Community
               </Button>
             </Link>
@@ -291,22 +293,24 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
+      <footer className="bg-charcoal-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Brand */}
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="p-2 bg-eco-600 rounded-xl">
+                <div className="p-2 bg-gradient-to-br from-purple-600 to-magenta-600 rounded-xl">
                   <Leaf className="h-6 w-6 text-white" />
                 </div>
-                <span className="text-2xl font-bold">ReWear</span>
+                <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-magenta-400 bg-clip-text text-transparent">
+                  ReWear
+                </span>
               </div>
               <p className="text-gray-400 mb-6 max-w-md">
                 Building a sustainable future through community-driven clothing exchange. 
                 Every swap makes a difference.
               </p>
-              <div className="text-sm text-eco-400 font-medium">
+              <div className="text-sm text-plum-400 font-medium">
                 🌱 Together for a greener tomorrow
               </div>
             </div>
@@ -315,10 +319,10 @@ const Index = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><Link to="/browse" className="hover:text-white transition-colors">Browse Items</Link></li>
-                <li><Link to="/add-item" className="hover:text-white transition-colors">List Item</Link></li>
-                <li><Link to="/dashboard" className="hover:text-white transition-colors">Dashboard</Link></li>
-                <li><Link to="/login" className="hover:text-white transition-colors">Sign In</Link></li>
+                <li><Link to="/browse" className="hover:text-purple-400 transition-colors">Browse Items</Link></li>
+                <li><Link to="/add-item" className="hover:text-purple-400 transition-colors">List Item</Link></li>
+                <li><Link to="/dashboard" className="hover:text-purple-400 transition-colors">Dashboard</Link></li>
+                <li><Link to="/login" className="hover:text-purple-400 transition-colors">Sign In</Link></li>
               </ul>
             </div>
 
@@ -326,16 +330,16 @@ const Index = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Support</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Community Guidelines</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
+                <li><a href="#" className="hover:text-purple-400 transition-colors">Help Center</a></li>
+                <li><a href="#" className="hover:text-purple-400 transition-colors">Community Guidelines</a></li>
+                <li><a href="#" className="hover:text-purple-400 transition-colors">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-purple-400 transition-colors">Contact Us</a></li>
               </ul>
             </div>
           </div>
 
           <div className="border-t border-gray-800 pt-8 mt-12 text-center text-gray-400">
-            <p>&copy; 2024 ReWear. All rights reserved. Made with 💚 for sustainability.</p>
+            <p>&copy; 2024 ReWear. All rights reserved. Made with 💜 for sustainability.</p>
           </div>
         </div>
       </footer>

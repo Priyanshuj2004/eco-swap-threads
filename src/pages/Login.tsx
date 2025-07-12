@@ -26,7 +26,7 @@ const Login = () => {
     setTimeout(() => {
       setIsLoading(false);
       toast({
-        title: "Welcome back! 🌱",
+        title: "Welcome back! 💜",
         description: "You've successfully signed in to ReWear.",
       });
     }, 1500);
@@ -41,31 +41,31 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-eco-50 via-white to-earth-50 flex items-center justify-center p-4">
+    <div className="min-h-screen purple-gradient flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Back to home */}
-        <Link to="/" className="inline-flex items-center text-eco-600 hover:text-eco-700 mb-8 group">
+        <Link to="/" className="inline-flex items-center text-purple-600 hover:text-purple-700 mb-8 group">
           <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
           Back to Home
         </Link>
 
         {/* Login Card */}
-        <div className="eco-card p-8">
+        <div className="purple-card p-8">
           {/* Header */}
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
-              <div className="p-3 bg-eco-100 rounded-2xl">
-                <Leaf className="h-8 w-8 text-eco-600" />
+              <div className="p-3 bg-gradient-to-br from-purple-100 to-magenta-100 rounded-2xl">
+                <Leaf className="h-8 w-8 text-purple-600" />
               </div>
             </div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome Back</h1>
-            <p className="text-gray-600">Sign in to continue your sustainable journey</p>
+            <h1 className="text-3xl font-bold text-charcoal-900 mb-2">Welcome Back</h1>
+            <p className="text-charcoal-600">Sign in to continue your sustainable journey</p>
           </div>
 
           {/* Login Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <Label htmlFor="email" className="text-sm font-medium text-gray-700">
+              <Label htmlFor="email" className="text-sm font-medium text-charcoal-700">
                 Email Address
               </Label>
               <Input
@@ -75,13 +75,13 @@ const Login = () => {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="mt-1 rounded-xl border-eco-200 focus:border-eco-500 focus:ring-eco-500"
+                className="mt-1 rounded-xl border-purple-200 focus:border-purple-500 focus:ring-purple-500"
                 placeholder="Enter your email"
               />
             </div>
 
             <div>
-              <Label htmlFor="password" className="text-sm font-medium text-gray-700">
+              <Label htmlFor="password" className="text-sm font-medium text-charcoal-700">
                 Password
               </Label>
               <div className="relative mt-1">
@@ -92,13 +92,13 @@ const Login = () => {
                   required
                   value={formData.password}
                   onChange={handleChange}
-                  className="rounded-xl border-eco-200 focus:border-eco-500 focus:ring-eco-500 pr-12"
+                  className="rounded-xl border-purple-200 focus:border-purple-500 focus:ring-purple-500 pr-12"
                   placeholder="Enter your password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-charcoal-400 hover:text-purple-600"
                 >
                   {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                 </button>
@@ -113,13 +113,13 @@ const Login = () => {
                   onCheckedChange={(checked) => 
                     setFormData(prev => ({ ...prev, rememberMe: checked as boolean }))
                   }
-                  className="rounded border-eco-300"
+                  className="rounded border-purple-300"
                 />
-                <Label htmlFor="rememberMe" className="ml-2 text-sm text-gray-600">
+                <Label htmlFor="rememberMe" className="ml-2 text-sm text-charcoal-600">
                   Remember me
                 </Label>
               </div>
-              <Link to="/forgot-password" className="text-sm text-eco-600 hover:text-eco-700">
+              <Link to="/forgot-password" className="text-sm text-purple-600 hover:text-purple-700">
                 Forgot password?
               </Link>
             </div>
@@ -127,7 +127,7 @@ const Login = () => {
             <Button
               type="submit"
               disabled={isLoading}
-              className="w-full eco-button-primary py-3"
+              className="w-full purple-button-primary py-3"
             >
               {isLoading ? (
                 <div className="flex items-center">
@@ -143,10 +143,10 @@ const Login = () => {
           {/* Divider */}
           <div className="relative my-6">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-eco-200"></div>
+              <div className="w-full border-t border-purple-200"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">or</span>
+              <span className="px-2 bg-white text-charcoal-500">or</span>
             </div>
           </div>
 
@@ -155,7 +155,7 @@ const Login = () => {
             <Button
               type="button"
               variant="outline"
-              className="w-full rounded-xl border-eco-200 hover:bg-eco-50"
+              className="w-full rounded-xl border-purple-200 hover:bg-purple-50 text-charcoal-700"
             >
               <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24">
                 <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -168,9 +168,9 @@ const Login = () => {
           </div>
 
           {/* Sign up link */}
-          <p className="text-center text-sm text-gray-600 mt-8">
+          <p className="text-center text-sm text-charcoal-600 mt-8">
             Don't have an account?{' '}
-            <Link to="/signup" className="text-eco-600 hover:text-eco-700 font-medium">
+            <Link to="/signup" className="text-purple-600 hover:text-purple-700 font-medium">
               Sign up here
             </Link>
           </p>

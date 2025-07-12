@@ -48,7 +48,7 @@ const Signup = () => {
     setTimeout(() => {
       setIsLoading(false);
       toast({
-        title: "Welcome to ReWear! 🌱",
+        title: "Welcome to ReWear! 💜",
         description: "Your account has been created successfully.",
       });
     }, 1500);
@@ -74,31 +74,31 @@ const Signup = () => {
   const strength = passwordStrength(formData.password);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-eco-50 via-white to-earth-50 flex items-center justify-center p-4">
+    <div className="min-h-screen purple-gradient flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Back to home */}
-        <Link to="/" className="inline-flex items-center text-eco-600 hover:text-eco-700 mb-8 group">
+        <Link to="/" className="inline-flex items-center text-purple-600 hover:text-purple-700 mb-8 group">
           <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
           Back to Home
         </Link>
 
         {/* Signup Card */}
-        <div className="eco-card p-8">
+        <div className="purple-card p-8">
           {/* Header */}
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
-              <div className="p-3 bg-eco-100 rounded-2xl">
-                <Leaf className="h-8 w-8 text-eco-600" />
+              <div className="p-3 bg-gradient-to-br from-purple-100 to-magenta-100 rounded-2xl">
+                <Leaf className="h-8 w-8 text-purple-600" />
               </div>
             </div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Join ReWear</h1>
-            <p className="text-gray-600">Start your sustainable fashion journey today</p>
+            <h1 className="text-3xl font-bold text-charcoal-900 mb-2">Join ReWear</h1>
+            <p className="text-charcoal-600">Start your sustainable fashion journey today</p>
           </div>
 
           {/* Signup Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <Label htmlFor="name" className="text-sm font-medium text-gray-700">
+              <Label htmlFor="name" className="text-sm font-medium text-charcoal-700">
                 Full Name
               </Label>
               <Input
@@ -108,13 +108,13 @@ const Signup = () => {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="mt-1 rounded-xl border-eco-200 focus:border-eco-500 focus:ring-eco-500"
+                className="mt-1 rounded-xl border-purple-200 focus:border-purple-500 focus:ring-purple-500"
                 placeholder="Enter your full name"
               />
             </div>
 
             <div>
-              <Label htmlFor="email" className="text-sm font-medium text-gray-700">
+              <Label htmlFor="email" className="text-sm font-medium text-charcoal-700">
                 Email Address
               </Label>
               <Input
@@ -124,13 +124,13 @@ const Signup = () => {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="mt-1 rounded-xl border-eco-200 focus:border-eco-500 focus:ring-eco-500"
+                className="mt-1 rounded-xl border-purple-200 focus:border-purple-500 focus:ring-purple-500"
                 placeholder="Enter your email"
               />
             </div>
 
             <div>
-              <Label htmlFor="password" className="text-sm font-medium text-gray-700">
+              <Label htmlFor="password" className="text-sm font-medium text-charcoal-700">
                 Password
               </Label>
               <div className="relative mt-1">
@@ -141,13 +141,13 @@ const Signup = () => {
                   required
                   value={formData.password}
                   onChange={handleChange}
-                  className="rounded-xl border-eco-200 focus:border-eco-500 focus:ring-eco-500 pr-12"
+                  className="rounded-xl border-purple-200 focus:border-purple-500 focus:ring-purple-500 pr-12"
                   placeholder="Create a strong password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-charcoal-400 hover:text-purple-600"
                 >
                   {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                 </button>
@@ -162,18 +162,18 @@ const Signup = () => {
                         key={i}
                         className={`h-1 w-full rounded-full ${
                           i < strength 
-                            ? strength <= 2 ? 'bg-red-400' : strength === 3 ? 'bg-yellow-400' : 'bg-eco-400'
+                            ? strength <= 2 ? 'bg-red-400' : strength === 3 ? 'bg-yellow-400' : 'bg-plum-400'
                             : 'bg-gray-200'
                         }`}
                       />
                     ))}
                   </div>
-                  <div className="flex items-center mt-2 text-xs text-gray-600">
-                    <Check className={`h-3 w-3 mr-1 ${formData.password.length >= 8 ? 'text-eco-500' : 'text-gray-300'}`} />
+                  <div className="flex items-center mt-2 text-xs text-charcoal-600">
+                    <Check className={`h-3 w-3 mr-1 ${formData.password.length >= 8 ? 'text-plum-500' : 'text-gray-300'}`} />
                     8+ characters
-                    <Check className={`h-3 w-3 mr-1 ml-3 ${/[A-Z]/.test(formData.password) ? 'text-eco-500' : 'text-gray-300'}`} />
+                    <Check className={`h-3 w-3 mr-1 ml-3 ${/[A-Z]/.test(formData.password) ? 'text-plum-500' : 'text-gray-300'}`} />
                     Uppercase
-                    <Check className={`h-3 w-3 mr-1 ml-3 ${/[0-9]/.test(formData.password) ? 'text-eco-500' : 'text-gray-300'}`} />
+                    <Check className={`h-3 w-3 mr-1 ml-3 ${/[0-9]/.test(formData.password) ? 'text-plum-500' : 'text-gray-300'}`} />
                     Number
                   </div>
                 </div>
@@ -181,7 +181,7 @@ const Signup = () => {
             </div>
 
             <div>
-              <Label htmlFor="confirmPassword" className="text-sm font-medium text-gray-700">
+              <Label htmlFor="confirmPassword" className="text-sm font-medium text-charcoal-700">
                 Confirm Password
               </Label>
               <div className="relative mt-1">
@@ -192,13 +192,13 @@ const Signup = () => {
                   required
                   value={formData.confirmPassword}
                   onChange={handleChange}
-                  className="rounded-xl border-eco-200 focus:border-eco-500 focus:ring-eco-500 pr-12"
+                  className="rounded-xl border-purple-200 focus:border-purple-500 focus:ring-purple-500 pr-12"
                   placeholder="Confirm your password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-charcoal-400 hover:text-purple-600"
                 >
                   {showConfirmPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                 </button>
@@ -215,15 +215,15 @@ const Signup = () => {
                 onCheckedChange={(checked) => 
                   setFormData(prev => ({ ...prev, agreeToTerms: checked as boolean }))
                 }
-                className="rounded border-eco-300 mt-1"
+                className="rounded border-purple-300 mt-1"
               />
-              <Label htmlFor="agreeToTerms" className="ml-2 text-sm text-gray-600 leading-5">
+              <Label htmlFor="agreeToTerms" className="ml-2 text-sm text-charcoal-600 leading-5">
                 I agree to the{' '}
-                <Link to="/terms" className="text-eco-600 hover:text-eco-700">
+                <Link to="/terms" className="text-purple-600 hover:text-purple-700">
                   Terms of Service
                 </Link>{' '}
                 and{' '}
-                <Link to="/privacy" className="text-eco-600 hover:text-eco-700">
+                <Link to="/privacy" className="text-purple-600 hover:text-purple-700">
                   Privacy Policy
                 </Link>
               </Label>
@@ -232,7 +232,7 @@ const Signup = () => {
             <Button
               type="submit"
               disabled={isLoading}
-              className="w-full eco-button-primary py-3"
+              className="w-full purple-button-primary py-3"
             >
               {isLoading ? (
                 <div className="flex items-center">
@@ -248,10 +248,10 @@ const Signup = () => {
           {/* Divider */}
           <div className="relative my-6">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-eco-200"></div>
+              <div className="w-full border-t border-purple-200"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">or</span>
+              <span className="px-2 bg-white text-charcoal-500">or</span>
             </div>
           </div>
 
@@ -260,7 +260,7 @@ const Signup = () => {
             <Button
               type="button"
               variant="outline"
-              className="w-full rounded-xl border-eco-200 hover:bg-eco-50"
+              className="w-full rounded-xl border-purple-200 hover:bg-purple-50 text-charcoal-700"
             >
               <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24">
                 <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -273,9 +273,9 @@ const Signup = () => {
           </div>
 
           {/* Login link */}
-          <p className="text-center text-sm text-gray-600 mt-8">
+          <p className="text-center text-sm text-charcoal-600 mt-8">
             Already have an account?{' '}
-            <Link to="/login" className="text-eco-600 hover:text-eco-700 font-medium">
+            <Link to="/login" className="text-purple-600 hover:text-purple-700 font-medium">
               Sign in here
             </Link>
           </p>

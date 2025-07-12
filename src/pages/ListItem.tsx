@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Upload, X, Camera, Tag, Package } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -105,22 +104,22 @@ const ListItem = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-eco-50 via-white to-earth-50">
+    <div className="min-h-screen purple-gradient">
       <NavBar />
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">List New Item</h1>
-          <p className="text-gray-600">Share something amazing from your closet with the community</p>
+          <h1 className="text-3xl font-bold text-charcoal-900 mb-2">List New Item</h1>
+          <p className="text-charcoal-600">Share something amazing from your closet with the community</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-8">
           {/* Image Upload */}
-          <Card className="eco-card">
+          <Card className="purple-card">
             <CardHeader>
-              <CardTitle className="flex items-center">
-                <Camera className="h-5 w-5 text-eco-600 mr-2" />
+              <CardTitle className="flex items-center text-charcoal-900">
+                <Camera className="h-5 w-5 text-purple-600 mr-2" />
                 Photos
               </CardTitle>
             </CardHeader>
@@ -130,23 +129,22 @@ const ListItem = () => {
                 <div
                   className={`border-2 border-dashed rounded-2xl p-8 text-center transition-colors ${
                     dragActive 
-                      ? 'border-eco-500 bg-eco-50' 
-                      : 'border-gray-300 hover:border-eco-400'
+                      ? 'border-purple-500 bg-purple-50' 
+                      : 'border-purple-300 hover:border-purple-400'
                   }`}
                   onDragEnter={handleDrag}
                   onDragLeave={handleDrag}
                   onDragOver={handleDrag}
                   onDrop={handleDrop}
                 >
-                  <Upload className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                  <p className="text-lg font-medium text-gray-700 mb-2">
+                  <Upload className="h-12 w-12 text-purple-400 mx-auto mb-4" />
+                  <p className="text-lg font-medium text-charcoal-700 mb-2">
                     Drag & drop your images here
                   </p>
-                  <p className="text-gray-500 mb-4">or</p>
+                  <p className="text-charcoal-500 mb-4">or</p>
                   <Button
                     type="button"
-                    variant="outline"
-                    className="rounded-xl"
+                    className="purple-button-outline"
                     onClick={() => document.getElementById('file-input')?.click()}
                   >
                     Choose Files
@@ -159,7 +157,7 @@ const ListItem = () => {
                     className="hidden"
                     onChange={(e) => handleImageUpload(e.target.files)}
                   />
-                  <p className="text-xs text-gray-500 mt-4">
+                  <p className="text-xs text-charcoal-500 mt-4">
                     PNG, JPG, GIF up to 10MB each. Maximum 5 images.
                   </p>
                 </div>
@@ -192,17 +190,17 @@ const ListItem = () => {
           </Card>
 
           {/* Item Details */}
-          <Card className="eco-card">
+          <Card className="purple-card">
             <CardHeader>
-              <CardTitle className="flex items-center">
-                <Package className="h-5 w-5 text-eco-600 mr-2" />
+              <CardTitle className="flex items-center text-charcoal-900">
+                <Package className="h-5 w-5 text-purple-600 mr-2" />
                 Item Details
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               {/* Title */}
               <div>
-                <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="title" className="block text-sm font-medium text-charcoal-700 mb-2">
                   Title *
                 </label>
                 <Input
@@ -213,13 +211,13 @@ const ListItem = () => {
                   placeholder="e.g., Vintage Denim Jacket"
                   value={formData.title}
                   onChange={handleInputChange}
-                  className="rounded-xl"
+                  className="rounded-xl border-purple-200 focus:border-purple-500"
                 />
               </div>
 
               {/* Description */}
               <div>
-                <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="description" className="block text-sm font-medium text-charcoal-700 mb-2">
                   Description
                 </label>
                 <Textarea
@@ -229,14 +227,14 @@ const ListItem = () => {
                   placeholder="Describe your item's features, styling tips, or story..."
                   value={formData.description}
                   onChange={handleInputChange}
-                  className="rounded-xl resize-none"
+                  className="rounded-xl resize-none border-purple-200 focus:border-purple-500"
                 />
               </div>
 
               {/* Category, Size, Condition Row */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
-                  <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="category" className="block text-sm font-medium text-charcoal-700 mb-2">
                     Category *
                   </label>
                   <select
@@ -245,7 +243,7 @@ const ListItem = () => {
                     required
                     value={formData.category}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-eco-500 focus:border-eco-500"
+                    className="w-full px-3 py-2 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-charcoal-700"
                   >
                     <option value="">Select category</option>
                     {categories.map(category => (
@@ -255,7 +253,7 @@ const ListItem = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="size" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="size" className="block text-sm font-medium text-charcoal-700 mb-2">
                     Size *
                   </label>
                   <select
@@ -264,7 +262,7 @@ const ListItem = () => {
                     required
                     value={formData.size}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-eco-500 focus:border-eco-500"
+                    className="w-full px-3 py-2 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-charcoal-700"
                   >
                     <option value="">Select size</option>
                     {sizes.map(size => (
@@ -274,7 +272,7 @@ const ListItem = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="condition" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="condition" className="block text-sm font-medium text-charcoal-700 mb-2">
                     Condition *
                   </label>
                   <select
@@ -283,7 +281,7 @@ const ListItem = () => {
                     required
                     value={formData.condition}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-eco-500 focus:border-eco-500"
+                    className="w-full px-3 py-2 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-charcoal-700"
                   >
                     <option value="">Select condition</option>
                     {conditions.map(condition => (
@@ -296,7 +294,7 @@ const ListItem = () => {
               {/* Tags and Points Row */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="tags" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="tags" className="block text-sm font-medium text-charcoal-700 mb-2">
                     Tags
                   </label>
                   <Input
@@ -306,12 +304,12 @@ const ListItem = () => {
                     placeholder="vintage, summer, casual (comma separated)"
                     value={formData.tags}
                     onChange={handleInputChange}
-                    className="rounded-xl"
+                    className="rounded-xl border-purple-200 focus:border-purple-500"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="points" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="points" className="block text-sm font-medium text-charcoal-700 mb-2">
                     Suggested Points
                   </label>
                   <Input
@@ -321,9 +319,9 @@ const ListItem = () => {
                     placeholder="e.g., 150"
                     value={formData.points}
                     onChange={handleInputChange}
-                    className="rounded-xl"
+                    className="rounded-xl border-purple-200 focus:border-purple-500"
                   />
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="text-xs text-charcoal-500 mt-1">
                     Leave blank for automatic calculation
                   </p>
                 </div>
@@ -332,10 +330,10 @@ const ListItem = () => {
           </Card>
 
           {/* Guidelines */}
-          <Card className="eco-card bg-eco-50 border-eco-200">
+          <Card className="purple-card bg-purple-100/50 border-purple-300">
             <CardContent className="pt-6">
-              <h3 className="font-semibold text-eco-800 mb-3">📋 Listing Guidelines</h3>
-              <ul className="text-sm text-eco-700 space-y-1">
+              <h3 className="font-semibold text-purple-800 mb-3">📋 Listing Guidelines</h3>
+              <ul className="text-sm text-purple-700 space-y-1">
                 <li>• Take clear, well-lit photos from multiple angles</li>
                 <li>• Be honest about condition and any flaws</li>
                 <li>• Include measurements when helpful</li>
@@ -350,7 +348,7 @@ const ListItem = () => {
             <Button
               type="button"
               variant="outline"
-              className="rounded-xl"
+              className="rounded-xl border-purple-300 text-purple-600 hover:bg-purple-50"
               onClick={() => {
                 setFormData({
                   title: '',
@@ -368,7 +366,7 @@ const ListItem = () => {
             </Button>
             <Button
               type="submit"
-              className="eco-button-primary px-8"
+              className="purple-button-primary px-8"
             >
               <Tag className="h-4 w-4 mr-2" />
               List Item
