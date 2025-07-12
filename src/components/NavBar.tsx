@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showFavorites, setShowFavorites] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   const location = useLocation();
 
@@ -16,6 +17,24 @@ const NavBar = () => {
     { path: '/browse', label: 'Browse Items' },
     { path: '/add-item', label: 'List Item' },
     { path: '/dashboard', label: 'Dashboard' },
+  ];
+
+  // Mock favorites data
+  const favorites = [
+    {
+      id: '1',
+      title: 'Vintage Leather Jacket',
+      image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=150&h=150&fit=crop',
+      category: 'Outerwear',
+      points: 150
+    },
+    {
+      id: '2',
+      title: 'Designer Handbag',
+      image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=150&h=150&fit=crop',
+      category: 'Accessories',
+      points: 200
+    }
   ];
 
   // Mock profile data
@@ -64,18 +83,67 @@ const NavBar = () => {
               <Search className="h-5 w-5" />
             </Button>
             
-            {/* Favorites Link */}
-            <Link to="/favorites">
+            {/* Favorites Dropdown */}
+            <div className="relative">
               <Button 
                 variant="ghost" 
                 size="sm" 
-                className={`p-2 hover:bg-purple-50 hover:text-magenta-500 ${
-                  isActive('/favorites') ? 'bg-purple-100 text-magenta-600' : ''
-                }`}
+                className="p-2 hover:bg-purple-50 hover:text-magenta-500 relative"
+                onClick={() => setShowFavorites(!showFavorites)}
               >
                 <Heart className="h-5 w-5" />
+                {favorites.length > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-magenta-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
+                    {favorites.length}
+                  </span>
+                )}
               </Button>
-            </Link>
+
+              {showFavorites && (
+                <div className="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-lg border border-purple-200 z-50">
+                  <div className="p-4 border-b border-purple-100">
+                    <h3 className="font-semibold text-charcoal-900">Your Favorites</h3>
+                  </div>
+                  
+                  <div className="max-h-96 overflow-y-auto">
+                    {favorites.length > 0 ? (
+                      <div className="p-2">
+                        {favorites.map((item) => (
+                          <div key={item.id} className="flex items-center p-3 hover:bg-purple-50 rounded-lg">
+                            <img
+                              src={item.image}
+                              alt={item.title}
+                              className="w-12 h-12 object-cover rounded-lg mr-3"
+                            />
+                            <div className="flex-1">
+                              <h4 className="font-medium text-charcoal-900 text-sm">{item.title}</h4>
+                              <p className="text-xs text-charcoal-600">{item.category}</p>
+                              <p className="text-xs text-purple-600 font-medium">{item.points} points</p>
+                            </div>
+                            <Button variant="ghost" size="sm" className="p-1 text-red-500 hover:text-red-600">
+                              <X className="h-4 w-4" />
+                            </Button>
+                          </div>
+                        ))}
+                        <div className="p-3 border-t border-purple-100">
+                          <Link to="/favorites">
+                            <Button className="w-full purple-button-secondary text-sm">
+                              View All Favorites
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="p-6 text-center">
+                        <Heart className="h-12 w-12 text-charcoal-300 mx-auto mb-2" />
+                        <p className="text-charcoal-500 text-sm">No favorites yet</p>
+                        <p className="text-charcoal-400 text-xs">Start adding items you love!</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
 
             {/* Profile Dropdown */}
             <div className="relative">
@@ -193,17 +261,6 @@ const NavBar = () => {
                   {item.label}
                 </Link>
               ))}
-              <Link
-                to="/favorites"
-                className={`block px-3 py-2 rounded-lg text-base font-medium transition-all duration-200 ${
-                  isActive('/favorites')
-                    ? 'bg-purple-100 text-purple-700'
-                    : 'text-charcoal-500 hover:text-purple-600 hover:bg-purple-50'
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Favorites
-              </Link>
               <div className="flex items-center space-x-2 pt-4 border-t border-purple-200/50">
                 <Link to="/login" className="flex-1">
                   <Button variant="outline" className="w-full rounded-xl border-purple-300 text-purple-600 hover:bg-purple-50">
@@ -221,11 +278,14 @@ const NavBar = () => {
         )}
       </div>
 
-      {/* Overlay for profile dropdown */}
-      {showProfile && (
+      {/* Overlay for dropdowns */}
+      {(showFavorites || showProfile) && (
         <div
           className="fixed inset-0 z-40"
-          onClick={() => setShowProfile(false)}
+          onClick={() => {
+            setShowFavorites(false);
+            setShowProfile(false);
+          }}
         />
       )}
     </nav>
