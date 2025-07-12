@@ -55,9 +55,9 @@ const Dashboard = () => {
       requester: 'Emma Wilson',
       requesterPhone: '+1 (555) 123-4567',
       dateRequested: '2024-01-10',
-      status: 'approved' as const,
+      status: 'pending' as const,
       message: 'Hi! I love this coat. Would love to swap for my vintage bag.',
-      showContact: true
+      showContact: false
     },
     {
       id: '2',
