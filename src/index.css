@@ -1,96 +1,89 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Eco-friendly ReWear Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 250 100% 99%;           /* Very light cream */
+    --foreground: 160 15% 15%;            /* Dark forest green */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;                    /* Pure white */
+    --card-foreground: 160 15% 15%;       /* Dark forest green */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;                 /* Pure white */
+    --popover-foreground: 160 15% 15%;    /* Dark forest green */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 145 63% 42%;               /* Eco green */
+    --primary-foreground: 0 0% 100%;      /* White */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 142 20% 96%;             /* Very light sage */
+    --secondary-foreground: 160 15% 15%;  /* Dark forest green */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 142 20% 96%;                 /* Very light sage */
+    --muted-foreground: 160 8% 45%;       /* Medium forest green */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 35 100% 92%;                /* Light peach */
+    --accent-foreground: 160 15% 15%;     /* Dark forest green */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;             /* Red for errors */
+    --destructive-foreground: 0 0% 100%;  /* White */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 142 30% 88%;                /* Light sage border */
+    --input: 142 30% 88%;                 /* Light sage input */
+    --ring: 145 63% 42%;                  /* Eco green ring */
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;                    /* Rounded corners */
 
     --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-foreground: 160 15% 15%;
+    --sidebar-primary: 145 63% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 142 20% 96%;
+    --sidebar-accent-foreground: 160 15% 15%;
+    --sidebar-border: 142 30% 88%;
+    --sidebar-ring: 145 63% 42%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 160 20% 8%;             /* Dark forest */
+    --foreground: 142 20% 96%;            /* Light sage */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 160 15% 12%;                  /* Dark card */
+    --card-foreground: 142 20% 96%;       /* Light sage */
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 160 15% 12%;               /* Dark popover */
+    --popover-foreground: 142 20% 96%;    /* Light sage */
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 145 63% 52%;               /* Brighter eco green */
+    --primary-foreground: 160 20% 8%;     /* Dark forest */
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 160 15% 15%;             /* Dark secondary */
+    --secondary-foreground: 142 20% 96%;  /* Light sage */
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 160 15% 15%;                 /* Dark muted */
+    --muted-foreground: 160 8% 65%;       /* Medium sage */
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 35 80% 20%;                 /* Dark peach */
+    --accent-foreground: 142 20% 96%;     /* Light sage */
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 75% 55%;             /* Darker red */
+    --destructive-foreground: 142 20% 96%; /* Light sage */
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 160 15% 18%;                /* Dark border */
+    --input: 160 15% 18%;                 /* Dark input */
+    --ring: 145 63% 52%;                  /* Brighter eco green ring */
+
+    --sidebar-background: 160 20% 8%;
+    --sidebar-foreground: 142 20% 96%;
+    --sidebar-primary: 145 63% 52%;
+    --sidebar-primary-foreground: 160 20% 8%;
+    --sidebar-accent: 160 15% 15%;
+    --sidebar-accent-foreground: 142 20% 96%;
+    --sidebar-border: 160 15% 18%;
+    --sidebar-ring: 145 63% 52%;
   }
 }
 
@@ -100,6 +93,49 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins font-semibold;
+  }
+}
+
+@layer components {
+  .eco-gradient {
+    @apply bg-gradient-to-br from-eco-100 via-eco-50 to-earth-50;
+  }
+
+  .eco-card {
+    @apply bg-white/80 backdrop-blur-sm border border-eco-200/50 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+
+  .eco-button-primary {
+    @apply bg-eco-500 hover:bg-eco-600 text-white px-6 py-3 rounded-2xl font-medium transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+  }
+
+  .eco-button-secondary {
+    @apply bg-earth-100 hover:bg-earth-200 text-earth-700 px-6 py-3 rounded-2xl font-medium transition-all duration-200 border border-earth-200 hover:border-earth-300;
+  }
+
+  .points-badge {
+    @apply bg-gradient-to-r from-eco-400 to-eco-500 text-white px-3 py-1 rounded-full text-sm font-medium shadow-sm;
+  }
+
+  .status-badge {
+    @apply px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide;
+  }
+
+  .status-available {
+    @apply bg-eco-100 text-eco-700 border border-eco-200;
+  }
+
+  .status-pending {
+    @apply bg-earth-100 text-earth-700 border border-earth-200;
+  }
+
+  .status-swapped {
+    @apply bg-slate-100 text-slate-600 border border-slate-200;
   }
 }
