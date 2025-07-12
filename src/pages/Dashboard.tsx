@@ -50,7 +50,7 @@ const Dashboard = () => {
   const swapRequests = [
     {
       id: '1',
-      type: 'incoming',
+      type: 'incoming' as const,
       item: 'Designer Wool Coat',
       requester: 'Emma Wilson',
       requesterPhone: '+1 (555) 123-4567',
@@ -61,7 +61,7 @@ const Dashboard = () => {
     },
     {
       id: '2',
-      type: 'outgoing',
+      type: 'outgoing' as const,
       item: 'Casual Cotton Tee',
       owner: 'Alex Rodriguez',
       ownerPhone: '+1 (555) 987-6543',
